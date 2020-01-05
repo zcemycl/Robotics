@@ -1,6 +1,6 @@
 # Robotics [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 Collection of Python implementations of Robotics and Computer Vision theories taught in 
-1. University of Pennsylvania Robotics Specialization 
+1. University of Pennsylvania [Robotics Specialization](https://www.coursera.org/specializations/robotics?) 
 2. University of Cambridge Computer Vision
 3. University of Cambridge Robotics
 4. University of Cambridge Reinforcement Learning and Decision Making
