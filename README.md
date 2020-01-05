@@ -1,9 +1,9 @@
 # Robotics [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 Collection of Python implementations of Robotics and Computer Vision theories taught in 
 1. University of Pennsylvania [Robotics Specialization](https://www.coursera.org/specializations/robotics?) 
-2. University of Cambridge Computer Vision
+2. University of Cambridge [Computer Vision](https://www.cl.cam.ac.uk/teaching/1617/E4F12/)
 3. University of Cambridge Robotics
-4. University of Cambridge Reinforcement Learning and Decision Making
+4. University of Cambridge [Reinforcement Learning and Decision Making](http://mlg.eng.cam.ac.uk/teaching/mlsalt7/1516/)
 
 Aims of this repo are to translate all MATLAB codes into Python to develop a deeper understanding about those Robotics and Computer Vision concepts, and provide more readable scripts for beginners to begin their learning about Robotics. 
 
