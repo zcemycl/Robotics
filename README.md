@@ -24,7 +24,7 @@ Aims of this repo are to translate all MATLAB codes into Python to develop a dee
 + [Particle Localization](https://github.com/zcemycl/Robotics/blob/master/Estimation%20and%20Learning/Particle%20Localization/ParticleLocalization.ipynb)
 + [Proportional-Derivative Control](https://github.com/zcemycl/Robotics/blob/master/Capstone/PD%20control/PDTrack.ipynb)
 + [Proportional-Derivative Track Arm](https://github.com/zcemycl/Robotics/blob/master/Capstone/PD%20control/ManipTrack.ipynb)
-+ [Solve ODE](https://github.com/zcemycl/Robotics/blob/master/Capstone/ODE%20solver/Ordinary%20Differential%20Equation.ipynb)
++ [Solve Ordinary Differential Equation](https://github.com/zcemycl/Robotics/blob/master/Capstone/ODE%20solver/Ordinary%20Differential%20Equation.ipynb)
 + [Estimated Kalman Filter](https://github.com/zcemycl/Robotics/blob/master/Capstone/Estimated%20Kalman%20Filter/EKF.ipynb)
 + [Mobile Inverted Pendulum](https://github.com/zcemycl/Robotics/blob/master/Capstone/Mobile%20Inverted%20Pendulum/MIP.ipynb)
 + [Linear–quadratic regulator Mobile Inverted Pendulum](https://github.com/zcemycl/Robotics/blob/master/Capstone/LQR%20MIP/LQRMIP.ipynb)
