@@ -5,7 +5,7 @@ Collection of Python implementations of Robotics and Computer Vision theories ta
 3. University of Cambridge Robotics
 4. University of Cambridge [Reinforcement Learning and Decision Making](http://mlg.eng.cam.ac.uk/teaching/mlsalt7/1516/)
 
-Aims of this repo are to rewrite all MATLAB demos from the online courses into Python to develop a deeper understanding about those Robotics and Computer Vision concepts, and provide more readable scripts for beginners to begin their learning about Robotics. 
+Aims of this repo are to rewrite all MATLAB demos from the online courses into Python to develop a deeper understanding about those Robotics and Computer Vision concepts, and provide more readable scripts for beginners to begin their learning about Robotics. [**Mobility course is coming soon!]
 
 ## Table of Contents
 + [Quadcopter 1D](https://github.com/zcemycl/Robotics/blob/master/Aerial%20Robotics/Quadcopter1D.ipynb)
