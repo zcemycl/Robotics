@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ISO-8859-15"?>
+
+<launch>
+  <include file="$(find raspicam)/launch/raspicam.launch"/>
+  <include file="$(find robot_launch)/launch/tag_detection.launch"/>
+  <include file="$(find imu_rtimulib)/launch/imu_rtimulib.launch"/>
+  <include file="$(find dc_motor_driver)/launch/dc_motor_driver.launch">
+</launch>

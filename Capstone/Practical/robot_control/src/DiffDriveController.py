@@ -61,32 +61,22 @@ class DiffDriveController():
             done = True
         else:
             done = False
-        vw = None
-        print("v, omega: ", v, omega, type(omega))
-        if type(omega) != type(1.25):
-            vw = (v[0], omega[0], done)
-        else:
-            vw = (v[0], omega, done)
-        print("Diff Controller VW: ", vw)
+
+        vw = (v, omega, done)
         return vw
 
 
 if __name__ == '__main__':
-
     diff_drive_controller = DiffDriveController(0.5, 1.6)
 
     # Tests:
-    print("Running test::Straight Forward: (5, 0, 0)")
+    print "Running test::Straight Forward: (5, 0, 0)"
     test_start = np.array([0, 0, 0])
     test_goal = np.array([5, 1, 0])  # 5m, 5m, 45 degrees
     diff_drive_controller.compute_vel(test_start, test_goal)
 
-    print("\nRunning test::Left: (5m, 5m, 0)")
-    test_start = np.array([0, 0, 0])
-    test_goal = np.array([5, 5, 0])
-    print(diff_drive_controller.compute_vel(test_start, test_goal))
 
-    print("Running test::Turning: (5m, 5m, 45 Degrees)")
+    print "Running test::Turning: (5m, 5m, 45 Degrees)"
     test_start = np.array([0,0,0])
     test_goal = np.array([5,5, np.pi/4]) # 5m, 5m, 45 degrees
     diff_drive_controller.compute_vel(test_start, test_goal)
@@ -97,12 +87,12 @@ if __name__ == '__main__':
     # state = np.array([meas[0], meas[1], meas[2]])
     # vw = self.diff_drive_controller.compute_vel(state, goal)
 
-    print("Running Test::Tag: (0.25480768607482129, -0.022549956977450526, 0.016922701984059048)")
+    print "Running Test::Tag: (0.25480768607482129, -0.022549956977450526, 0.016922701984059048)"
     test_start = np.array([0, 0, 0])
     test_goal = np.array([0.25480768607482129, -0.022549956977450526, 0.016922701984059048])  # 5m, 5m, 45 degrees
-    print(diff_drive_controller.compute_vel(test_start, test_goal))
+    print diff_drive_controller.compute_vel(test_start, test_goal)
 
-    print("Running Test::Tag: (0.2329683769187918, 0.011103904204575101, -0.084052242784899228, 0)")
+    print "Running Test::Tag: (0.2329683769187918, 0.011103904204575101, -0.084052242784899228, 0)"
     test_start = np.array([0, 0, 0])
     test_goal = np.array([0.2329683769187918, 0.011103904204575101, -0.084052242784899228, 0])  # 5m, 5m, 45 degrees
-    print(diff_drive_controller.compute_vel(test_start, test_goal))
+    print diff_drive_controller.compute_vel(test_start, test_goal)

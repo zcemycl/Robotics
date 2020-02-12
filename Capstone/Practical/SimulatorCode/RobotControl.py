@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 """
 ROS based interface for the Course Robotics Specialization Capstone Autonomous Rover.
-Updated June 19 2016.
+Updated 02 Feb 2020.
 """
 #import rospy
 
@@ -10,17 +10,14 @@ import numpy as np
 
 import sys
 
-# TODO for student: Comment this section when running on the robot 
 from RobotSim import RobotSim
 import matplotlib.pyplot as plt
 
-# TODO for student: uncomment when changing to the robot
-# from ros_interface import ROSInterface
 
 # TODO for student: User files, uncomment as completed
-#from MyShortestPath import dijkstras
-#from KalmanFilter import KalmanFilter
-#from DiffDriveController import DiffDriveController
+from path_planner import dijkstras
+from KalmanFilter import KalmanFilter
+from DiffDriveController import DiffDriveController
 
 class RobotControl(object):
     """
@@ -63,31 +60,83 @@ class RobotControl(object):
         # Handles all the ROS related items
         #self.ros_interface = ROSInterface(t_cam_to_body)
 
-        # YOUR CODE AFTER THIS
-        
         # Uncomment as completed
-        #self.kalman_filter = KalmanFilter(world_map)
-        #self.diff_drive_controller = DiffDriveController(max_speed, max_omega)
+        self.kalman_filter = KalmanFilter(world_map)
+        self.diff_drive_controller = DiffDriveController(max_speed, max_omega)
+        plan = dijkstras(occupancy_map, x_spacing, y_spacing, pos_init, pos_goal)
+        self.state_tol = 0.1
+        self.path = plan.tolist()
+        print("Path: ", self.path, type(self.path))
+        self.path.reverse()
+        self.path.pop()
+        self.state = pos_init
+        self.goal = self.path.pop()
+        self.x_offset = x_spacing
+        self.vw = (0, 0, False)
+        # self.goal[0] += self.x_offset/2
+        # self.goal[1] += y_spacing
+        print("INIT GOAL: ", self.goal)
+
+    #     def dijkstras(occupancy_map, x_spacing, y_spacing, start, goal):
+
 
     def process_measurements(self):
-        """ 
-        YOUR CODE HERE
-        Main loop of the robot - where all measurements, control, and esimtaiton
+        """
+        Main loop of the robot - where all measurements, control, and estimation
         are done. This function is called at 60Hz
         """
-        # TODO for student: Comment this when running on the robot 
+
         meas = self.robot_sim.get_measurements()
         imu_meas = self.robot_sim.get_imu()
-        self.robot_sim.command_velocity(0.3, 0)
-        # TODO for student: Use this when transferring code to robot
-        # meas = self.ros_interface.get_measurements()
-        # imu_meas = self.ros_interface.get_imu()
 
-        return
-    
+        self.vw = self.diff_drive_controller.compute_vel(self.state, self.goal)
+        print("VW: ", self.vw)
+        print("Running Controller.")
+
+        if self.vw[2] == False:
+            self.robot_sim.command_velocity(self.vw[0], self.vw[1])
+        else:
+            self.robot_sim.command_velocity(0, 0)
+        
+        est_x = self.kalman_filter.step_filter(self.vw, imu_meas, meas)
+        print("EST X: ", est_x, est_x[2][0])
+        if est_x[2][0] > 2.617991667:
+            est_x[2][0] = 2.617991667
+        if est_x[2][0] < 0.523598333:
+            est_x[2][0] = 0.523598333
+        self.state = est_x
+        print("Get GT Pose: ", self.robot_sim.get_gt_pose())
+        print("EKF Pose: ", est_x)
+        self.robot_sim.get_gt_pose()
+        self.robot_sim.set_est_state(est_x)
+        
+        if np.all(imu_meas != None):
+            self.kalman_filter.prediction(self.vw, imu_meas)
+
+        if np.all(meas != None) and meas != []:
+            print("Measurements: ", meas)
+            if np.all(imu_meas != None):
+                # self.kalman_filter.prediction(self.vw, imu_meas)
+                self.kalman_filter.update(meas)
+
+
+        pos_x_check = ((self.goal[0] + self.state_tol) > est_x.item(0)) and \
+                      ((self.goal[0] - self.state_tol) < est_x.item(0))
+
+        pos_y_check = ((self.goal[1] + self.state_tol) > est_x.item(1)) and \
+                      ((self.goal[1] - self.state_tol) < est_x.item(1))
+
+        if pos_x_check and pos_y_check:
+            if self.path != []:
+                self.goal = self.path.pop()
+                # self.goal[0] += self.x_offset/2
+                # self.goal[1] += y_spacing
+            else:
+                self.goal = est_x
+
 def main(args):
     # Load parameters from yaml
-    param_path = 'params.yaml' # rospy.get_param("~param_path")
+    param_path = 'params.yaml'  # rospy.get_param("~param_path")
     f = open(param_path,'r')
     params_raw = f.read()
     f.close()
@@ -107,12 +156,13 @@ def main(args):
                                 max_vel, max_omega, x_spacing, y_spacing,
                                 t_cam_to_body)
 
-    # TODO for student: Comment this when running on the robot 
     # Run the simulation
     while not robotControl.robot_sim.done and plt.get_fignums():
         robotControl.process_measurements()
         robotControl.robot_sim.update_frame()
 
+    mng = plt.get_current_fig_manager()
+#    mng.frame.Maximize(True)
     plt.ioff()
     plt.show()
 
@@ -126,6 +176,8 @@ def main(args):
     robotControl.ros_interface.command_velocity(0,0)"""
 
 if __name__ == "__main__":
+    import time
+    # time.sleep(3)
     main(sys.argv)
 
 

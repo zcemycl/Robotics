@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="ISO-8859-15"?>
+
+<launch>
+  <node pkg="robot_control" type="RobotControl.py" name="robot_control" output="screen">
+    <param name="param_path" value="$(find robot_control)/params/params.yaml"/>
+  </node>
+</launch>

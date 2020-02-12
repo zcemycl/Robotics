@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-15"?>
+
+<launch>
+  <node pkg="apriltags_ros" type="apriltag_detector_node" name="apriltag_detector" output="screen" ns="camera">
+    <!-- Enter your AprilTag information below. Add all tag IDs that will be used, with their sizes -->
+    <rosparam param="tag_descriptions">[
+      {id: 0, size: 0.081},
+      {id: 1, size: 0.081},
+      {id: 2, size: 0.081},
+      {id: 3, size: 0.081},
+      {id: 4, size: 0.081},
+      {id: 5, size: 0.081},
+      {id: 6, size: 0.054},
+      {id: 7, size: 0.054},
+      {id: 8, size: 0.054},
+      {id: 9, size: 0.054},
+      {id: 10, size: 0.054},
+      {id: 11, size: 0.054},
+      {id: 12, size: 0.054},
+      {id: 13, size: 0.054},
+      {id: 14, size: 0.054},
+      {id: 15, size: 0.054},>
+      ]
+    </rosparam>
+    <remap from="image_rect" to="image_raw"/>
+  </node>
+</launch>
