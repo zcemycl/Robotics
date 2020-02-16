@@ -7,6 +7,18 @@ Collection of Python implementations of Robotics and Computer Vision theories ta
 
 Aims of this repo are to rewrite all MATLAB demos from the online courses into Python to develop a deeper understanding about those Robotics and Computer Vision concepts, and provide more readable scripts for beginners to begin their learning about Robotics. [**Mobility course is coming soon!]
 
+## Configuration
++ Python 3.7.4
++ numpy 1.16.5
++ scipy 1.3.1
++ matplotlib 3.1.1
++ yaml 5.1.2
++ open-cv 3.4.2
++ glob 0.7
++ tqdm 4.36.1
++ sympy 1.4
++ slycot 0.3.5.0
+
 ## Table of Contents
 + [Quadcopter 1D](https://github.com/zcemycl/Robotics/blob/master/Aerial%20Robotics/Quadcopter1D.ipynb)
 + [Quadcopter 2D](https://github.com/zcemycl/Robotics/blob/master/Aerial%20Robotics/Quadcopter2D.ipynb) 
