@@ -32,7 +32,7 @@ def dijkstras(occupancy_map, x_spacing, y_spacing, start, goal):
     cost = 1
     # Convert numpy array of map to list of map, makes it easier to search.
     occ_map = occupancy_map.tolist()
-    print "occ_map: "
+    print("occ_map: ")
     pprint.pprint(occ_map)
 
     # Converge start and goal positions to map indices.
@@ -40,8 +40,8 @@ def dijkstras(occupancy_map, x_spacing, y_spacing, start, goal):
     y = int(math.ceil((start.item(1) / y_spacing) - 0.5))  # startingy
     goalX = int(math.ceil((goal.item(0) / x_spacing) - 0.5))
     goalY = int(math.ceil((goal.item(1) / y_spacing) - 0.5))
-    print "Start Pose: ", x, y
-    print "Goal Pose: ", goalX, goalY
+    print("Start Pose: ", x, y)
+    print("Goal Pose: ", goalX, goalY)
 
     # Make a map to keep track of all the nodes and their cost distance values.
     possible_nodes = [[0 for row in range(len(occ_map[0]))] for col in range(len(occ_map))]
@@ -53,7 +53,7 @@ def dijkstras(occupancy_map, x_spacing, y_spacing, start, goal):
     possible_nodes[row][col] = 5
     # possible_nodes[goalY][goalX] = 6
 
-    print "Possible Nodes: "
+    print("Possible Nodes: ")
     pprint.pprint(possible_nodes)
 
     # The g_value will count the number of steps each node is from the start.
@@ -65,34 +65,34 @@ def dijkstras(occupancy_map, x_spacing, y_spacing, start, goal):
     loopcount = 0
 
     while len(frontier_nodes) != 0:
-        print "\n>>>>>>>>>>>>LOOP COUNT: ", loopcount, "\n"
+        print("\n>>>>>>>>>>>>LOOP COUNT: ", loopcount, "\n")
         frontier_nodes.sort(reverse=True) #sort from shortest distance to farthest
         current_node = frontier_nodes.pop()
-        print "current_node: ", current_node
-        print "frontier nodes: ", searched_nodes
+        print("current_node: ", current_node)
+        print("frontier nodes: ", searched_nodes)
         if current_node[1] == goalX and current_node[2] == goalY:
-            print " %%%%%%%%%%%%% Goal found!"
-            print "NEAREST NODE: ", current_node
-            print "searched_nodes: \n", searched_nodes
-            print "\n"
-            print sorted(searched_nodes, key = itemgetter(0))
+            print(" %%%%%%%%%%%%% Goal found!")
+            print("NEAREST NODE: ", current_node)
+            print("searched_nodes: \n", searched_nodes)
+            print("\n")
+            print(sorted(searched_nodes, key = itemgetter(0)))
             break
         g_value, col, row = current_node
-        print "current g, col, row:", g_value, col, row
+        print("current g, col, row:", g_value, col, row)
 
         # Check surrounding neighbors.
         for i in delta:
             possible_expansion_x = col + i[0]
             possible_expansion_y = row + i[1]
-            print "map dims: ", len(occupancy_map[0]), len(occ_map)
+            print("map dims: ", len(occupancy_map[0]), len(occ_map))
             valid_expansion = 0 <= possible_expansion_y < len(occupancy_map[0]) and 0 <= possible_expansion_x < len(occ_map)
-            print "Current expansion Node: ", possible_expansion_x, possible_expansion_y
+            print("Current expansion Node: ", possible_expansion_x, possible_expansion_y)
 
             if valid_expansion:
                 try:
                     unsearched_node = possible_nodes[possible_expansion_y][possible_expansion_x] == 0
                     open_node = occ_map[possible_expansion_y][possible_expansion_x] == 0
-                    print "Check Open or Wall: ", occ_map[possible_expansion_y][possible_expansion_x]
+                    print("Check Open or Wall: ", occ_map[possible_expansion_y][possible_expansion_x])
                 except:
                     unsearched_node = False
                     open_node = False
@@ -103,16 +103,16 @@ def dijkstras(occupancy_map, x_spacing, y_spacing, start, goal):
                     possible_nodes[possible_expansion_y][possible_expansion_x] = 3
                     possible_node = (g_value + cost, possible_expansion_x, possible_expansion_y)
                     frontier_nodes.append(possible_node)
-                    print "frontier_nodes:", frontier_nodes
+                    print("frontier_nodes:", frontier_nodes)
 
                     # This now builds parent/child relationship
                     parent_node[possible_node] = current_node
-                    print "Parent Node: \n", parent_node
-                    print "While Possible Nodes: "
+                    print("Parent Node: \n", parent_node)
+                    print("While Possible Nodes: ")
                     pprint.pprint(possible_nodes)
         loopcount = loopcount+1
 
-    print "Generating path..."
+    print("Generating path...")
 
     route = []
     child_node = current_node
@@ -188,7 +188,7 @@ def test():
     if np.array_equal(path1,true_path1):
       print("Path 1 passes")
     else:
-        print "nope, chuck testa"
+        print("nope, chuck testa")
 
     test_map2 = np.array([
              [0, 0, 0, 0, 0, 0, 0, 0],
