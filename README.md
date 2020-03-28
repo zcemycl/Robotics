@@ -45,6 +45,7 @@ Aims of this repo are to rewrite all MATLAB demos from the online courses into P
 + [Policy Iteration](Reinforcemnet%20Learning/PolicyIteration.ipynb)
 + [State–Action–Reward–State–Action](Reinforcemnet%20Learning/sarsa.ipynb)
 + [Q-Learning](Reinforcemnet%20Learning/q-learning.ipynb)
++ [Suceptible-Infectious-Removed](simWUCOV.py)
 
 
 ## Outputs
@@ -61,4 +62,5 @@ Aims of this repo are to rewrite all MATLAB demos from the online courses into P
 <img src="Capstone/ODE%20solver/ODEresult.png" width="200">|<img src="Capstone/Estimated%20Kalman%20Filter/EKFresult.png" width="200">|<img src="Capstone/Mobile%20Inverted%20Pendulum/MIP.gif" width="200">|<img src="Capstone/LQR%20MIP/LQRMIPresult.png" width="200">
 [PID MIP](Capstone/PID%20MIP/PIDControlMIP.ipynb)|[Value Iteration](Reinforcemnet%20Learning/ValueIteration.ipynb)|[sarsa](Reinforcemnet%20Learning/sarsa.ipynb)|[Q-Learning](Reinforcemnet%20Learning/q-learning.ipynb)
 <img src="Capstone/PID%20MIP/PIDMIPresult.png" width="200">|<img src="Reinforcemnet%20Learning/ValIter1.png" width="200">|<img src="Reinforcemnet%20Learning/sarsa3.png" width="200">|<img src="Reinforcemnet%20Learning/qlearn3.png" width="200">
-
+[SIR model](simWUCOV.py)|||
+<img src="SIR.gif" width="200">|||
