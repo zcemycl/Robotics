@@ -10,13 +10,16 @@ Suceptible-Infected-Removed (SIR) [012]
 def press(event,obj):
     sys.stdout.flush()
     if event.key == 'q':
-        imageio.mimsave('./SIR.gif',obj.images,fps=30)
+        if obj.save:
+            imageio.mimsave(obj.save_dir+obj.save_name,
+                    obj.images,fps=30)
         sys.exit(0)
 
 class model:
     def __init__(self,sizGrid=10,spdK=.15,
             sizHuman=100,simT=1000000,
-            infR=.2,infP=.05,rmT=50,rmP=.1):
+            infR=.2,infP=.05,rmT=50,rmP=.1,
+            save=False,save_dir=None,save_name=None):
         # Constant
         self.sizGrid = sizGrid
         self.spdConstant = spdK
@@ -42,6 +45,7 @@ class model:
         self.sS,self.sI,self.sR = [],[],[]
         # images
         self.images = []
+        self.save,self.save_dir,self.save_name = save,save_dir,save_name
     def updatePlot(self):
         ax = plt.gca(); ax.clear()
         
@@ -108,7 +112,8 @@ class model:
         while self.t < self.simTime:
             if self.t%1 == 0:
                 image = self.updatePlot()
-                self.images.append(image)
+                if self.save:
+                    self.images.append(image)
             self.updateLocSpd()
             self.updateInfect()
             self.updateRemove()
@@ -120,6 +125,9 @@ if __name__ == '__main__':
     parser.add_argument('--rmT',type=int,default=50,help='Recovered Period')
     parser.add_argument('--rmP',type=float,default=.1,help='Recovered probability')
     parser.add_argument('--simT',type=int,default=100000,help='simulation epochs')
+    parser.add_argument('--save',type=bool,default=False,help='save mode')
+    parser.add_argument('--save-dir',type=str,default='/home/yui/Documents/outputs/',help='save path')
+    parser.add_argument('--save-name',type=str,default='SIR.gif',help='save gif name')
     args = parser.parse_args()
     model_kwargs = {
             'infR':args.infR,'infP':args.infP,
