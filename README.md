@@ -26,9 +26,7 @@ Aims of this repo are to rewrite all MATLAB demos from the online courses into P
 + [2D Homography](Perception/Logo%20Projection/LogoProjection.ipynb),[3D Homography](Perception/3D%20object%20projection/3D%20Homography.ipynb),[Optical Track](Perception/Optical%20Track/CornerTracking.ipynb),[Point Cloud](Perception/Point%20Cloud/PointCloud.ipynb),[Calibration](Perception/Calibration/calibrationviaChessBoard.ipynb)
 + [Kalman Filter](Estimation%20and%20Learning/Kalman%20Filter/BallPathPrediction_KalmanFilter.ipynb),[Occupancy Grid Map](Estimation%20and%20Learning/Occupancy%20Grid%20Map/occGridMapping.ipynb),[Particle Localization](Estimation%20and%20Learning/Particle%20Localization/ParticleLocalization.ipynb)
 + [Proportional-Derivative Control](Capstone/PD%20control/PDTrack.ipynb),[Proportional-Derivative Track Arm](Capstone/PD%20control/ManipTrack.ipynb),[Solve Ordinary Differential Equation](Capstone/ODE%20solver/Ordinary%20Differential%20Equation.ipynb),[Estimated Kalman Filter](Capstone/Estimated%20Kalman%20Filter/EKF.ipynb)
-+ [Mobile Inverted Pendulum](Capstone/Mobile%20Inverted%20Pendulum/MIP.ipynb)
-+ [Linear–quadratic regulator Mobile Inverted Pendulum](Capstone/LQR%20MIP/LQRMIP.ipynb)
-+ [Proportional–Integral–Derivative controller Mobile Inverted Pendulum](Capstone/PID%20MIP/PIDControlMIP.ipynb)
++ [Mobile Inverted Pendulum](Capstone/Mobile%20Inverted%20Pendulum/MIP.ipynb) + [Linear–quadratic regulator Mobile Inverted Pendulum](Capstone/LQR%20MIP/LQRMIP.ipynb) + [Proportional–Integral–Derivative controller Mobile Inverted Pendulum](Capstone/PID%20MIP/PIDControlMIP.ipynb)
 + [Value Iteration](Reinforcemnet%20Learning/ValueIteration.ipynb),[Policy Iteration](Reinforcemnet%20Learning/PolicyIteration.ipynb),[State–Action–Reward–State–Action](Reinforcemnet%20Learning/sarsa.ipynb), [Q-Learning](Reinforcemnet%20Learning/q-learning.ipynb)
 + [Suceptible-Infectious-Removed](simWUCOV.py)
 
