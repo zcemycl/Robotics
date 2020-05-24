@@ -5,6 +5,7 @@ Collection of Python implementations of Robotics and Computer Vision theories ta
 3. University of Cambridge Robotics
 4. University of Cambridge [Reinforcement Learning and Decision Making](http://mlg.eng.cam.ac.uk/teaching/mlsalt7/1516/)
 5. Robot Ignite Academy [[link]](https://www.robotigniteacademy.com/en/)
+
 Aims of this repo are to rewrite all MATLAB demos from the online courses into Python to develop a deeper understanding about those Robotics and Computer Vision concepts, and provide more readable scripts for beginners to begin their learning about Robotics. [**Mobility course is coming soon!]
 
 ## Configuration
