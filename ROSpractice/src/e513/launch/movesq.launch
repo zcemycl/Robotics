@@ -1,0 +1,7 @@
+<launch>
+    <node pkg="e513"
+        type="movesq.py"
+        name="action_client"
+        output="screen">
+    </node>
+</launch>

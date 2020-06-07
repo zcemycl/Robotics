@@ -1,0 +1,3 @@
+<launch>
+    <node pkg="ex3_2" type="publish_Age.py" name="pubage" output="screen"/>
+</launch>

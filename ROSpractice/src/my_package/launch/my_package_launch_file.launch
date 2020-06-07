@@ -1,0 +1,5 @@
+<launch>
+    <!-- my_package -->
+    <node pkg="my_package" type="simple_loop.py" name="ObiWan" output="screen">
+    </node>
+</launch>

@@ -1,0 +1,7 @@
+<launch>
+    <node pkg="my_custom_srv_msg_pkg"
+        type="bb8_move_circle_service_server.py"
+        name="service_server"
+        output="screen">
+    </node>
+</launch>

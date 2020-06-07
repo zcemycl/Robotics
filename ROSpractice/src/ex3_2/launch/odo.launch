@@ -1,0 +1,4 @@
+<launch>
+    <node pkg="ex3_2" type="odo_topsub.py" name="odo_topsub" output="screen">
+    </node>
+</launch>

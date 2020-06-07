@@ -1,0 +1,5 @@
+<launch>
+    <!-- my_package -->
+    <node pkg="my_package" type="simple_move_node.py" name="move_node" output="screen">
+    </node>
+</launch>
