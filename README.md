@@ -1,4 +1,4 @@
-# Robotics [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+# Robotics [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fzcemycl%2FRobotics&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
 Collection of Python implementations of Robotics and Computer Vision theories taught in 
 1. University of Pennsylvania [Robotics Specialization](https://www.coursera.org/specializations/robotics?) 
 2. University of Cambridge [Computer Vision](https://www.cl.cam.ac.uk/teaching/1617/E4F12/)
